@@ -57,6 +57,6 @@ class GoldbachsConjecture
   attr_reader :pn
 
   def build!
-    @formulas.select! { |v| v.answer.even? && v.right <= v.answer && v.right <= v.answer / 2 }
+    @formulas.select! { |v| v.answer.even? && v.right <= v.answer && (v.answer == 4 || v.right <= v.answer / 2) }
   end
 end
