@@ -1,11 +1,4 @@
 #!/usr/bin/ruby
-require 'optparse'
-OPTIONS = {}
-parser = OptionParser.new
-parser.version = '0.0.1'
-parser.on('-a max', '--max') {|v| OPTIONS[:max] = v.to_i}
-parser.parse!(ARGV)
-
 class PrimeNumbers
   attr_reader :max, :half, :primes
   def initialize(max)
