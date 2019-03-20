@@ -1,6 +1,8 @@
 ### ゴールドバッハ予想
+https://github.com/ogasawaraShinnosuke/maths/blob/master/src/goldbachs_conjecture.rb
+
 ```rb
-pry(main)> require_relative './goldbachs_conjecture_process'
+pry(main)> require_relative './goldbachs_conjecture'
 pry(main)> puts GoldbachsConjecture.new(10).formulas.map(&:vals)
 4 = 1 + 3
 6 = 3 + 3
