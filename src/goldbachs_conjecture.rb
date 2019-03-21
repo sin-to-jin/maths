@@ -7,30 +7,30 @@ class GoldbachsConjecture
   attr_accessor :formulas
 
   def initialize(max)
-    @pn = Values.new(max)
+    @pnb = Values.new(max)
     formula!
   end
 
   private
-  attr_reader :pn
+
+  attr_reader :pnb
 
   def formula!
-    @formulas = [*1..pn.max].each_with_object([]) do |i, f|
-      pn.primes.each { |n| f << GoldbachsFormula.new(pn, i, n) } if i > 2
+    @formulas = [*1..pnb.max].each_with_object([]) do |i, f|
+      pnb.primes.each { |n| f << GoldbachsFormula.new(pnb, i, n) } if i > 2
     end.select!(&:goldbachs)
   end
 
   class GoldbachsFormula < Formula
-    attr_accessor :pn
+    attr_accessor :pnb
 
-    def initialize(pn, a, m)
-      @pn = pn
-      super(a, m)
+    def initialize(pnb, answer, right)
+      @pnb = pnb
+      super answer, right
     end
 
     def goldbachs
-      even_uniq! && pn.includes?([left, right])
+      even_uniq! && pnb.includes?([left, right])
     end
   end
 end
-
